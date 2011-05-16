@@ -1,15 +1,16 @@
 ﻿var storeGrid = new Ext.data.Store({
     proxy: new Ext.data.HttpProxy({
-        url: App.utils.constants.URL_BASE_PATH + 'ListaPrecios.aspx/GetModelosIncentivos'
+        url: App.utils.constants.URL_BASE_PATH + 'ListaPrecios.aspx/GetClasifCorpIncentivos'
     }),
     reader: new Ext.data.JsonReader({
         root: 'rows',
         fields: [
-                { name: 'ModeloDescripcion', mapping: 'ModeloDescripcion' },
-                { name: 'Modelo7', mapping: 'Modelo7' },
-                { name: 'ClasifLocal', mapping: 'ClasifLocal' },
-                { name: 'ClasifUsa', mapping: 'ClasifUsa' },
-                { name: 'Familia', mapping: 'Familia' },
+//                { name: 'ModeloDescripcion', mapping: 'ModeloDescripcion' },
+//                { name: 'Modelo7', mapping: 'Modelo7' },
+//                { name: 'ClasifLocal', mapping: 'ClasifLocal' },
+//                { name: 'ClasifUsa', mapping: 'ClasifUsa' },
+        //                { name: 'Familia', mapping: 'Familia' },
+                { name:'Text', mapping:'Text'},
                 { name: 'DescuentoSobreBase', mapping: 'Incentivos.DescuentoSobreBase' },
                 { name: 'PlazoComercial', mapping: 'Incentivos.PlazoComercial' },
                 { name: 'SPABase', mapping: 'SPABase' },
@@ -17,7 +18,7 @@
             ]
     }),
     remoteSort: false,
-    sortInfo: { field: "ModeloDescripcion", direction: "ASC" }
+    sortInfo: { field: "Text", direction: "ASC" }
 });
 
 var storeDescuento = new Ext.data.Store({
@@ -57,23 +58,28 @@ var storePlazos = new Ext.data.Store({
 var sm = new Ext.grid.CheckboxSelectionModel();
 var cm = new Ext.grid.ColumnModel([
     sm,
+//    {
+//        header: 'Clasificación',
+//        sortable: true,
+//        dataIndex: 'ClasifLocal'
+//    },
+//    {
+//        header: 'Modelo',
+//        fixed: true,
+//        width: 180,
+//        sortable: true,
+//        dataIndex: 'ModeloDescripcion'
+//    },
+//    {
+//        header: 'Familia',
+//        sortable: true,
+//        dataIndex: 'Familia',
+//        hidden: true
+//    },
     {
-        header: 'Clasificación',
-        sortable: true,
-        dataIndex: 'ClasifLocal'
-    },
-    {
-        header: 'Modelo',
-        fixed: true,
-        width: 180,
-        sortable: true,
-        dataIndex: 'ModeloDescripcion'
-    },
-    {
-        header: 'Familia',
-        sortable: true,
-        dataIndex: 'Familia',
-        hidden: true
+        header:'Clasificación <br/>Corporativa',
+        dataIndex:'Text',
+        sortable:true
     },
     {
         header: 'SPA Base',
@@ -93,12 +99,12 @@ var cm = new Ext.grid.ColumnModel([
             return "<b>" + data + "</b>";
         }*/
     },
-    {
-        header: 'Modelo 7',
-        sortable: true,
-        dataIndex: 'Modelo7',
-        hidden: true
-    },
+//    {
+//        header: 'Modelo 7',
+//        sortable: true,
+//        dataIndex: 'Modelo7',
+//        hidden: true
+//    },
     {
         header: 'Descuento Equivalente <br/>Sobre Precio Base',
         sortable: true,

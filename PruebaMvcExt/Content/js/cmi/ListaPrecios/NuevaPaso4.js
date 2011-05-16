@@ -1,15 +1,16 @@
 ﻿var storeGrid = new Ext.data.GroupingStore({
     proxy: new Ext.data.HttpProxy({
-        url: App.utils.constants.URL_BASE_PATH + 'ListaPrecios.aspx/GetDealersAndModelos'
+        url: App.utils.constants.URL_BASE_PATH + 'ListaPrecios.aspx/GetDealersAndClasifCorp'
     }),
     reader: new Ext.data.JsonReader({
         root: 'Rows',
         fields: [
-                { name: 'ModeloDescripcion', mapping: 'ModeloDescripcion' },
-                { name: 'Modelo7', mapping: 'Modelo7' },
-                { name: 'ClasifLocal', mapping: 'ClasifLocal' },
-                { name: 'ClasifUsa', mapping: 'ClasifUsa' },
-                { name: 'Familia', mapping: 'Familia' },
+//                { name: 'ModeloDescripcion', mapping: 'ModeloDescripcion' },
+//                { name: 'Modelo7', mapping: 'Modelo7' },
+//                { name: 'ClasifLocal', mapping: 'ClasifLocal' },
+//                { name: 'ClasifUsa', mapping: 'ClasifUsa' },
+//                { name: 'Familia', mapping: 'Familia' },
+                  { name:'Text', mapping:'Text'},
                 { name: 'DescuentoSobreBase', mapping: 'Incentivos.DescuentoSobreBase' },
                { name: 'PlazoComercial', mapping: 'Incentivos.PlazoComercial' },
                 { name: 'SPABase', mapping: 'SPABase' },
@@ -19,7 +20,7 @@
             ]
     }),
     remoteSort: false,
-    sortInfo: { field: "ModeloDescripcion", direction: "ASC" },
+    sortInfo: { field: "Text", direction: "ASC" },
     groupField: 'GFX'
 });
 
@@ -55,23 +56,29 @@ var cm = new Ext.grid.ColumnModel([
         hidden:true
     },
     {
-        header: 'Clasificación',
+        header: 'Clasificación <br/> Corporativa',
         sortable: true,
-        dataIndex: 'ClasifLocal'
+        dataIndex: 'Text',
+        hidden:false
     },
-    {
-        header: 'Modelo',
-        fixed: true,
-        width: 180,
-        sortable: true,
-        dataIndex: 'ModeloDescripcion'
-    },
-    {
-        header: 'Familia',
-        sortable: true,
-        dataIndex: 'Familia',
-        hidden: true
-    },
+//    {
+//        header: 'Clasificación',
+//        sortable: true,
+//        dataIndex: 'ClasifLocal'
+//    },
+//    {
+//        header: 'Modelo',
+//        fixed: true,
+//        width: 180,
+//        sortable: true,
+//        dataIndex: 'ModeloDescripcion'
+//    },
+//    {
+//        header: 'Familia',
+//        sortable: true,
+//        dataIndex: 'Familia',
+//        hidden: true
+//    },
     {
         header: 'SPA Base',
         sortable: true,
@@ -86,12 +93,12 @@ var cm = new Ext.grid.ColumnModel([
         sortable: true,
         dataIndex: 'SPAProgramacionInventario'        
     },
-    {
-        header: 'Modelo 7',
-        sortable: true,
-        dataIndex: 'Modelo7',
-        hidden: true
-    },
+//    {
+//        header: 'Modelo 7',
+//        sortable: true,
+//        dataIndex: 'Modelo7',
+//        hidden: true
+//    },
     {
         header: 'Descuento Equivalente <br/>Sobre Precio Base',
         sortable: true,
@@ -200,6 +207,20 @@ var btnGuardarCfg = new Ext.Button({
     cls: 'x-btn-text-icon'
 });
 
+var gridExcel = new Ext.Button({
+	    text: 'Cargar archivo de cuotas',
+	    id: "btnExporta",
+	    icon: App.utils.constants.ICONS_PATH + 'page_white_excel.png',
+	    cls: 'x-btn-text-icon',
+	    listeners: {
+	        click: function () {
+	          
+	        }
+	    }
+
+	});
+
+
 var panelConc = {    
     id: 'panelConc',           
     layout : 'form',
@@ -208,7 +229,7 @@ var panelConc = {
     border: true,       
     items : [gridA],
     frame: true,
-    buttons: [btnVisPrevia, btnGuardarCfg, btnSeleccionarTodo]
+    buttons: [gridExcel, btnGuardarCfg, btnSeleccionarTodo]
 };
 
 

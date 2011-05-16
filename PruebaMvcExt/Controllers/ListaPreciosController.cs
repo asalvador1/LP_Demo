@@ -92,6 +92,34 @@ namespace PruebaMvcExt.Controllers
             return this.Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetDealersAndClasifCorp()
+        {
+            List<Dealer> tempColl = ListDealers();
+            List<ClasificacionCorp> modelos = ListClasif();
+            modelos.ForEach(el => el.Incentivos = new ProgramaConceptos
+            {
+                DescuentoSobreBase = "2.0%",
+                PlazoComercial = "90 días"
+            });
+            List<ClasificacionCorp> modelosDealer = new List<ClasificacionCorp>();
+            //hack                       
+            foreach (var m in modelos)
+            {
+                foreach (var d in tempColl)
+                {
+                    Dealer dd = new Dealer { GFX = d.GFX, Descripcion = d.Descripcion };
+                    ClasificacionCorp mm = new ClasificacionCorp(m);
+                    mm.DealerAsociado = dd;
+                    modelosDealer.Add(mm);
+                }
+            }
+
+
+
+            Hashtable result = new Hashtable();
+            result["Rows"] = modelosDealer;
+            return this.Json(result, JsonRequestBehavior.AllowGet);
+        }
         private static List<Dealer> ListDealers()
         {
             List<Dealer> tempColl = new List<Dealer>();
@@ -102,17 +130,83 @@ namespace PruebaMvcExt.Controllers
                     GFX = "930008"
                 });
             tempColl.Add(
+            new Dealer
+            {
+                Descripcion = "AMSA ORIENTE",
+                GFX = "930099"
+            });
+            tempColl.Add(
+             new Dealer
+             {
+                 Descripcion = "CADUSA",
+                 GFX = "930248"
+             });
+            tempColl.Add(
+            new Dealer
+            {
+                Descripcion = "CATOSA",
+                GFX = "930255"
+            });
+            tempColl.Add(
                 new Dealer
                 {
                     Descripcion = "CACESA",
                     GFX = "930271"
                 });
             tempColl.Add(
+    new Dealer
+    {
+        Descripcion = "CAPASA",
+        GFX = "930339"
+    });
+            tempColl.Add(
+    new Dealer
+    {
+        Descripcion = "CADISA",
+        GFX = "930412"
+    });
+            tempColl.Add(
+    new Dealer
+    {
+        Descripcion = "C. ESPECIALES",
+        GFX = "930487"
+    });
+            tempColl.Add(
+    new Dealer
+    {
+        Descripcion = "CAMINOSA",
+        GFX = "930578"
+    });
+            tempColl.Add(
                 new Dealer
                 {
                     Descripcion = "DIEZ CAMIONES",
                     GFX = "930636"
                 });
+            tempColl.Add(
+new Dealer
+{
+    Descripcion = "DACZA",
+    GFX = "930644"
+});
+            tempColl.Add(
+new Dealer
+{
+    Descripcion = "DIEZ MOTORES",
+    GFX = "930727"
+});
+            tempColl.Add(
+new Dealer
+{
+    Descripcion = "CAJASA",
+    GFX = "931089"
+});
+            tempColl.Add(
+new Dealer
+{
+    Descripcion = "ENER",
+    GFX = "931196"
+});
             tempColl.Add(
                 new Dealer
                 {
@@ -125,6 +219,54 @@ namespace PruebaMvcExt.Controllers
                     Descripcion = "RAFEDHER",
                     GFX = "931881"
                 });
+            tempColl.Add(
+                new Dealer
+                {
+                    Descripcion = "GEMI",
+                    GFX = "932194"
+                });
+            tempColl.Add(
+    new Dealer
+    {
+        Descripcion = "GALERIAS",
+        GFX = "932210"
+    });
+            tempColl.Add(
+new Dealer
+{
+    Descripcion = "INTERNATIONAL B.C.",
+    GFX = "935122"
+});
+//            tempColl.Add(
+//new Dealer
+//{
+//    Descripcion = "MI CAMION",
+//    GFX = "936153"
+//});
+//            tempColl.Add(
+//new Dealer
+//{
+//    Descripcion = "UTM",
+//    GFX = "940001"
+//});
+            tempColl.Add(
+new Dealer
+{
+    Descripcion = "UTP",
+    GFX = "940002"
+});
+            tempColl.Add(
+new Dealer
+{
+    Descripcion = "RESALTA",
+    GFX = "940003"
+});
+            tempColl.Add(
+new Dealer
+{
+    Descripcion = "IDEALEASE",
+    GFX = "940005"
+});
             return tempColl;
         }
 
@@ -147,6 +289,20 @@ namespace PruebaMvcExt.Controllers
             result["rows"] = modelos;
             return this.Json(result, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetClasifCorpIncentivos()
+        {
+            List<ClasificacionCorp> modelos = ListClasif();
+            modelos.ForEach(el => el.Incentivos = new ProgramaConceptos
+            {
+                DescuentoSobreBase = "2.0%",
+                PlazoComercial = "90 días"
+            });
+            Hashtable result = new Hashtable();
+            result["rows"] = modelos;
+            return this.Json(result, JsonRequestBehavior.AllowGet);
+        }
+
 
         public JsonResult GetDescuentosBase()
         {
@@ -276,7 +432,41 @@ namespace PruebaMvcExt.Controllers
             return modelos;
         }
 
-
+        private static List<ClasificacionCorp> ListClasif()
+        {
+            List<ClasificacionCorp> coll = new List<ClasificacionCorp>();
+            coll.Add(new ClasificacionCorp
+            {
+                Text = "Buses",
+                SPABase = "30%",
+                SPAProgramacionInventario ="0%"
+            });
+            coll.Add(new ClasificacionCorp
+            {
+                Text = "Heavy",
+                SPABase = "25%",
+                SPAProgramacionInventario = "0%"
+            });
+            coll.Add(new ClasificacionCorp
+            {
+                Text = "Light",
+                SPABase = "31%",
+                SPAProgramacionInventario = "0%"
+            });
+            coll.Add(new ClasificacionCorp
+            {
+                Text = "Medium",
+                SPABase = "30%",
+                SPAProgramacionInventario = "0%"
+            });
+            coll.Add(new ClasificacionCorp
+            {
+                Text = "Severe Service",
+                SPABase = "31%",
+                SPAProgramacionInventario = "0%"
+            });
+            return coll;
+        }
             
         #endregion
 

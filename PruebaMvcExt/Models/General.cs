@@ -59,5 +59,23 @@ namespace PruebaMvcExt.Models
         //{ get; set; }
     }
 
-    
+    public class ClasificacionCorp : Modelo
+    {
+        public ClasificacionCorp()
+        {
+        }
+        public  ClasificacionCorp(ClasificacionCorp c)
+        {
+            this.Incentivos = c.Incentivos;
+            this.SPABase = c.SPABase;
+            this.SPAProgramacionInventario = c.SPAProgramacionInventario;
+            this.Text = c.Text;
+        }
+        
+        public string Text
+        {
+            get;
+            set;
+        }
+    }
 }

@@ -23,6 +23,28 @@ namespace PruebaMvcExt.Controllers
             return View();
         }
 
+        //public ActionResult PedidoElectronico()
+        //{
+        //    return View();
+        //}
+
+        //public ActionResult CapturaPedido()
+        //{
+        //    return View();
+        //}
+
+        //public ActionResult SolicitudSustitucion()
+        //{
+        //    return View();
+        //}
+
+        //public ActionResult SustitucionPedido()
+        //{
+        //    return View();
+        //}
+
+
+
         public JsonResult List(int limit, int start, string dir, string sort)
         {
            

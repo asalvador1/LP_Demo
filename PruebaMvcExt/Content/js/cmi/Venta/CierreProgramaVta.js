@@ -50,104 +50,106 @@
                     ]
                 });
 
-                var Cuotacumplida = Ext.data.Record.create([
-                 {name: 'number'},         // "mapping" only needed if an "id" field is present which
-                 {name: 'id_modelo'},    // precludes using the ordinal position as the index.
-                 {name: 'id_cuotaprograma'},    // precludes using the ordinal position as the index.
-                 {name: 'id_Pedidos'}    // precludes using the ordinal position as the index.
-                ]);
+//                var Cuotacumplida = Ext.data.Record.create([
+//                 {name: 'number'},         // "mapping" only needed if an "id" field is present which
+//                 {name: 'id_modelo'},    // precludes using the ordinal position as the index.
+//                 {name: 'id_cuotaprograma1'},    // precludes using the ordinal position as the index.
+//                 {name: 'id_Pedidos'}    // precludes using the ordinal position as the index.
+//                ]);
 
 
-                var myReader = new Ext.data.ArrayReader(null,Cuotacumplida);
+//                var myReader = new Ext.data.ArrayReader(null,Cuotacumplida);
 
-                 var storedGrid1 = new Ext.data.GroupingStore({
-//                 reader: new Ext.data.ArrayReader({
-//                    //fields: ['number','id_modelo','id_cuotaprograma','id_Pedidos']
-//                    }),
-                    reader:myReader,
-                     data  : [
-                            ['1','3000RE', '2', '3'],
-                            ['1','3300CE', '3', '6'],
-                            ['2','4700FE', '9', '9'],
-                            ['2','4700 SFC', '5', '5'],
-                            ['2','4200', '8', '8'],
-                            ['3','4300', '10', '10'],
-                            ['3','4400 6x2', '2', '2'],
-                            ['3','4400 6x4', '4', '5'],
-                            ['4','4400 4x2', '9', '9'],
-                            ['5','7300', '3', '3'],
-                            ['6','7400 6x4', '6', '6'],
-                            ['6','7400 4x2', '7', '7'],
-                            ['6','8600 Transtar', '8', '8'],
-                            ['6','9200', '8', '8'],
-                            ['7','9400', '2', '2'],
-                            ['7','Prostar', '5', '5']
+//                 var storedGrid1 = new Ext.data.GroupingStore({
+////                 reader: new Ext.data.ArrayReader({
+////                    //fields: ['number','id_modelo','id_cuotaprograma','id_Pedidos']
+////                    }),
+//                    reader:myReader,
+//                     data  : [
+//                            ['1','3000RE', '2', '3'],
+//                            ['1','3300CE', '3', '6'],
+//                            ['2','4700FE', '9', '9'],
+//                            ['2','4700 SFC', '5', '5'],
+//                            ['2','4200', '8', '8'],
+//                            ['3','4300', '10', '10'],
+//                            ['3','4400 6x2', '2', '2'],
+//                            ['3','4400 6x4', '4', '5'],
+//                            ['4','4400 4x2', '9', '9']
+////                            ['5','7300', '3', '3'],
+////                            ['6','7400 6x4', '6', '6'],
+////                            ['6','7400 4x2', '7', '7'],
+////                            ['6','8600 Transtar', '8', '8'],
+////                            ['6','9200', '8', '8'],
+////                            ['7','9400', '2', '2'],
+////                            ['7','Prostar', '5', '5']
 
-                    ],
-                    groupField: 'number'
-                });
-
-                //
-
-                var CuotaNOcumplida = Ext.data.Record.create([
-                 {name: 'number'},
-                 {name: 'id_modelo'},         // "mapping" only needed if an "id" field is present which
-                 {name: 'id_cuotaprograma'},    // precludes using the ordinal position as the index.
-                 {name: 'id_PedidosH'},    // precludes using the ordinal position as the index.
-                 {name: 'id_PedidosF'},    // precludes using the ordinal position as the index.
-                 {name: 'id_completar'}
-                ]);
-
-                var myReader2 = new Ext.data.ArrayReader(null,CuotaNOcumplida);
-
-                 var storedGrid2 = new Ext.data.GroupingStore({
-                    reader:myReader2,
-                     data  : [
-                            ['1','3000RE', '2', '1', '1', 'Completar'],
-                            ['1','3300CE', '3', '2', '1', 'Completar'],
-                            ['2','4700FE', '9', '5', '4', 'Completar'],
-                            ['2','4700 SFC', '5', '3', '2', 'Completar'],
-                            ['2','4200', '8', '7', '1', 'Completar'],
-                            ['3','4300', '10', '9', '1', 'Completar'],
-                            ['3','4400 6x2', '2', '1', '1', 'Completar'],
-                            ['3','4400 6x4', '4', '3', '1', 'Completar'],
-                            ['4','4400 4x2', '9', '8', '1', 'Completar'],
-                            ['4','7300', '3', '2', '1', 'Completar'],
-                            ['5','7400 6x4', '6', '5', '1', 'Completar'],
-                            ['6','7400 4x2', '7', '6', '1', 'Completar'],
-                            ['7','8600 Transtar', '8', '5', '3', 'Completar'],
-                            ['7','9200', '8', '4', '4', 'Completar'],
-                            ['7','9400', '2', '1', '1', 'Completar'],
-                            ['8','Prostar', '5', '2', '3', 'Completar']
-
-                    ],
-                    groupField: 'number'
-                });
-
-                //
-//                var storedGrid2 = new Ext.data.SimpleStore({
-//                    fields: ['id_modelo','id_cuotaprograma','id_PedidosH', 'id_PedidosF', 'id_completar'],
-//                    data  : [
-//                            ['3000RE', '2', '1', '1', 'Completar'],
-//                            ['3300CE', '3', '2', '1', 'Completar'],
-//                            ['4700FE', '9', '5', '4', 'Completar'],
-//                            ['4700 SFC', '5', '3', '2', 'Completar'],
-//                            ['4200', '8', '7', '1', 'Completar'],
-//                            ['4300', '10', '9', '1', 'Completar'],
-//                            ['4400 6x2', '2', '1', '1', 'Completar'],
-//                            ['4400 6x4', '4', '3', '1', 'Completar'],
-//                            ['4400 4x2', '9', '8', '1', 'Completar'],
-//                            ['7300', '3', '2', '1', 'Completar'],
-//                            ['7400 6x4', '6', '5', '1', 'Completar'],
-//                            ['7400 4x2', '7', '6', '1', 'Completar'],
-//                            ['8600 Transtar', '8', '5', '3', 'Completar'],
-//                            ['9200', '8', '4', '4', 'Completar'],
-//                            ['9400', '2', '1', '1', 'Completar'],
-//                            ['Prostar', '5', '2', '3', 'Completar']
-
-
-//                    ]
+//                    ],
+//                    groupField: 'number'
 //                });
+
+//                //
+
+//                var CuotaNOcumplida = Ext.data.Record.create([
+//                 {name: 'number'},
+//                 {name: 'id_modelo'},         // "mapping" only needed if an "id" field is present which
+//                 {name: 'id_cuotaprograma'},    // precludes using the ordinal position as the index.
+//                 {name: 'id_PedidosH'},    // precludes using the ordinal position as the index.
+//                 {name: 'id_PedidosF'},    // precludes using the ordinal position as the index.
+//                 {name: 'id_completar'}
+//                ]);
+
+//                var myReader2 = new Ext.data.ArrayReader(null,CuotaNOcumplida);
+
+//                 var storedGrid2 = new Ext.data.GroupingStore({
+//                    reader:myReader2,
+//                     data  : [
+////                            ['1','3000RE', '2', '1', '1', 'Completar'],
+////                            ['1','3300CE', '3', '2', '1', 'Completar'],
+////                            ['2','4700FE', '9', '5', '4', 'Completar'],
+////                            ['2','4700 SFC', '5', '3', '2', 'Completar'],
+////                            ['2','4200', '8', '7', '1', 'Completar'],
+////                            ['3','4300', '10', '9', '1', 'Completar'],
+////                            ['3','4400 6x2', '2', '1', '1', 'Completar'],
+////                            ['3','4400 6x4', '4', '3', '1', 'Completar'],
+////                            ['4','4400 4x2', '9', '8', '1', 'Completar'],
+////                            ['4','7300', '3', '2', '1', 'Completar'],
+//                            ['5','7400 6x4', '6', '5', '1', 'Completar'],
+//                            ['6','7400 4x2', '7', '6', '1', 'Completar'],
+//                            ['7','8600 Transtar', '8', '5', '3', 'Completar'],
+//                            ['7','9200', '8', '4', '4', 'Completar'],
+//                            ['7','9400', '2', '1', '1', 'Completar'],
+//                            ['8','Prostar', '5', '2', '3', 'Completar']
+
+//                    ],
+//                    groupField: 'number'
+//                });
+
+               //
+                 var storedGrid1 = new Ext.data.SimpleStore({
+                    fields: ['id_classCorp','id_cuotaprograma','id_Unidad'],
+                    data  : [
+                            ['Buses','10','10'],
+//                            ['Heavy','13','9'],
+                            ['Light','6','6'],
+//                            ['Medium','9','7'],
+                            ['Severe Service','4','4']
+                    ]
+                });
+
+
+                var storedGrid2 = new Ext.data.SimpleStore({
+                    fields: ['id_classCorp','id_cuotaprogramaNc','id_UniPedH', 'id_UniPedF', 'id_completar'],
+                    data  : [
+//                            ['Buses','10','10','0','completar'],
+                            ['Heavy','13','9','4','completar'],
+//                            ['Light','6','6','0','completar'],
+                            ['Medium','9','7','2','completar'],
+//                            ['Severe Service','4','4','0','completar'],
+
+
+
+                    ]
+                });
 
                 var storePrograma = new Ext.data.SimpleStore({
                     fields: ['id_modelo','id_cuotaprograma','id_Porcentaje'],
@@ -416,15 +418,15 @@
 	   //grids
 
        Ext.ux.grid.GroupSummary.Calculations['totalCuota'] = function(v, record, field){
-        return parseInt(v) + parseInt(record.data.id_cuotaprograma);
+        return parseInt(v) + parseInt(record.data.id_cuotaprograma1);
         };
 
-         Ext.ux.grid.GroupSummary.Calculations['totalPedidos'] = function(v, record, field){
-        return parseInt(v) + parseInt(record.data.id_Pedidos);
+         Ext.ux.grid.GroupSummary.Calculations['totalUnidades'] = function(v, record, field){
+        return parseInt(v) + parseInt(record.data.id_Unidad);
         };
         // utilize custom extension for Group Summary
         var summary = new Ext.ux.grid.GroupSummary();
-
+        var summary2 = new Ext.ux.grid.GroupSummary();
 
 
 	    var grid = new Ext.grid.GridPanel({
@@ -434,6 +436,7 @@
 	    viewConfig:{ forceFit:true},
 //        autoHeight: true,
         height: 500,
+        width:638,
         //autoWidth:true,
 //        region: 'west',
         //width: 640,
@@ -450,15 +453,16 @@
          //       _theTop.showdialogo(800,400,'Editar Proveedor',xurl)
 	     //  }
 	    //} 
-        view: new Ext.grid.GroupingView({
-        //collapsed:false,//revisar para que grid aparezca colapsado
-        //startCollapsed : true,
-        forcerFit:true,
-        groupTextTpl: '{[values.rs[0].data["number"]]}'
-        }),
+        plugins: summary,
+//        view: new Ext.grid.GroupingView({
+//        //collapsed:false,//revisar para que grid aparezca colapsado
+//        //startCollapsed : true,
+//        forcerFit:true,
+//        groupTextTpl: '{[values.rs[0].data["number"]]}'
+//        }),
 //        collapsible: true,
 //        animCollapse: false,
-        plugins: summary,
+        
 	    columns: [
                     {
                         xtype: 'gridcolumn',
@@ -472,10 +476,10 @@
                     {
                         xtype: 'gridcolumn',
                         align: "center",
-                        header: 'Modelos',
+                        header: 'Clasificacion Corporativa',
                         sortable: true,
                         //width: 15,
-                        dataIndex: 'id_modelo'
+                        dataIndex: 'id_classCorp'
 //                        align: 'right'
                     },
                     {
@@ -496,8 +500,8 @@
                         header: 'Pedidos Hechos',
                         sortable: true,
                         //width: 15,
-                         dataIndex: 'id_Pedidos',
-                         summaryType: 'totalPedidos'
+                         dataIndex: 'id_Unidad',
+                         summaryType: 'totalUnidades'
                     }
                 ]              
 	    });
@@ -582,6 +586,7 @@
         return parseInt(v) + parseInt(record.data.id_PedidosF);
         };
 
+        
 
         var grid1 = new Ext.grid.GridPanel({
         id:"grid1",
@@ -591,6 +596,7 @@
         //anchor:"100% - 98",
 //        region: 'west',
         height: 500,
+        width:638,
 //        autoHeight:true,
        // width: 640,
 	    ds: storedGrid2,
@@ -601,16 +607,16 @@
 	    //selModel: sm,
 	    tbar: gridT1bar,
 	    bbar: gridB1bar,
-        view: new Ext.grid.GroupingView({
-        //collapsed:false,//revisar para que grid aparezca colapsado
-        //startCollapsed : true,
-        forcerFit:true,
-        groupTextTpl: '{[values.rs[0].data["number"]]}'
-        }),
-        plugins: summary,
+//        view: new Ext.grid.GroupingView({
+//        //collapsed:false,//revisar para que grid aparezca colapsado
+//        //startCollapsed : true,
+//        forcerFit:true,
+//        groupTextTpl: '{[values.rs[0].data["number"]]}'
+//        }),
+        plugins: summary2,
 	    listeners: {
 	        cellclick: function (grid, xri, xci, e) {			                        
-	            if (xci == "5") {
+	            if (xci == "4") {
                     wdCargaPedido.show();
                     //return;
                 }
@@ -619,19 +625,10 @@
             columns: [
                     {
                         xtype: 'gridcolumn',
-                        dataIndex: 'number',
-                        header: '#',
-                        dataIndex: 'number',
-                        sortable: true,
-                        hidden:true
-                        //width: 5
-                    },
-                    {
-                        xtype: 'gridcolumn',
-                        header: 'Modelos',
+                        header: 'Clasificacion Corporativa',
                         sortable: true,
                         //width: 15,
-                        dataIndex: 'id_modelo'
+                        dataIndex: 'id_classCorp'
 //                        align: 'right'
                     },
                     {
@@ -639,7 +636,7 @@
                         header: 'Cuota de Programa',
                         sortable: true,
                         //width: 15,
-                        dataIndex: 'id_cuotaprograma',
+                        dataIndex: 'id_cuotaprogramaNc',
                         summaryType: 'totalCuota1'
 
                     },
@@ -648,7 +645,7 @@
                         header: 'Pedidos Hechos',
                         sortable: true,
                        // width: 15,
-                        dataIndex: 'id_PedidosH',
+                        dataIndex: 'id_UniPedH',
                         summaryType: 'totalPedidos1'
                     },
                     {
@@ -656,7 +653,7 @@
                         header: 'Pedidos Faltantes',
                         sortable: true,
                         //width: 15,
-                        dataIndex: 'id_PedidosF',
+                        dataIndex: 'id_UniPedF',
                         summaryType: 'totalPedidosF'
                     },
                     {

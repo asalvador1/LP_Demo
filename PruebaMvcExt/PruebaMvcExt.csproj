@@ -1183,8 +1183,13 @@
     <Content Include="Content\js\behaviour.js" />
     <Content Include="Content\js\cmi\Acceso\Main.js" />
     <Content Include="Content\js\cmi\Acceso\Manto.js" />
+    <Content Include="Content\js\cmi\Home\CapturaJustificacion.htm" />
+    <Content Include="Content\js\cmi\Home\CapturaPedido.htm" />
     <Content Include="Content\js\cmi\Home\Main.js" />
     <Content Include="Content\js\cmi\Home\Index.js" />
+    <Content Include="Content\js\cmi\Home\Pedido de Unidades.htm" />
+    <Content Include="Content\js\cmi\Home\SolicituSustitucion.htm" />
+    <Content Include="Content\js\cmi\Home\SustituirPedido.htm" />
     <Content Include="Content\js\cmi\ListaPrecios\NuevaPaso4.js" />
     <Content Include="Content\js\cmi\ListaPrecios\NuevaPaso3.js" />
     <Content Include="Content\js\cmi\ListaPrecios\NuevaPaso2.js" />
