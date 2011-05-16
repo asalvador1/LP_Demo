@@ -33,3 +33,8 @@ C:\Adan.Salvador\ProyectosPer\LP\PruebaMvcExt\bin\PruebaMvcExt.pdb
 C:\Adan.Salvador\ProyectosPer\LP\PruebaMvcExt\obj\Debug\ResolveAssemblyReference.cache
 C:\Adan.Salvador\ProyectosPer\LP\PruebaMvcExt\obj\Debug\PruebaMvcExt.dll
 C:\Adan.Salvador\ProyectosPer\LP\PruebaMvcExt\obj\Debug\PruebaMvcExt.pdb
+C:\Adan.Salvador\ProyectosPer\LP_Demo\LP_Demo\PruebaMvcExt\bin\PruebaMvcExt.dll
+C:\Adan.Salvador\ProyectosPer\LP_Demo\LP_Demo\PruebaMvcExt\bin\PruebaMvcExt.pdb
+C:\Adan.Salvador\ProyectosPer\LP_Demo\LP_Demo\PruebaMvcExt\obj\Debug\ResolveAssemblyReference.cache
+C:\Adan.Salvador\ProyectosPer\LP_Demo\LP_Demo\PruebaMvcExt\obj\Debug\PruebaMvcExt.dll
+C:\Adan.Salvador\ProyectosPer\LP_Demo\LP_Demo\PruebaMvcExt\obj\Debug\PruebaMvcExt.pdb
